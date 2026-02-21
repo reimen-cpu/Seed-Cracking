@@ -1,4 +1,5 @@
-# EVM Wallet Cracker & Hunter 🎯
+# 😈 EVM Wallet Cracker / Hunter
+[![Download Executable](https://img.shields.io/badge/Download_Executable-v1.0.0-blue?style=for-the-badge&logo=linux)](https://github.com/reimen-cpu/Seed-Cracking/releases/latest/download/seed-cracker) 🎯
 
 A high-performance, CUDA-accelerated brute-force tool designed to recover lost or forgotten BIP-39 seed phrases for EVM-compatible wallets.
 
