@@ -25,6 +25,13 @@ class EVMWalletCrackerApp:
         y = (self.root.winfo_screenheight() // 2) - (h // 2)
         self.root.geometry(f"+{x}+{y}")
 
+        home = os.path.expanduser("~")
+        desktop_dir = os.path.join(home, "Escritorio")
+        if not os.path.exists(desktop_dir):
+            desktop_dir = os.path.join(home, "Desktop")
+        self.shared_dir = os.path.join(desktop_dir, "seed-tools-txt")
+        os.makedirs(self.shared_dir, exist_ok=True)
+
         self.process = None
         self.is_running = False
 
@@ -226,6 +233,7 @@ class EVMWalletCrackerApp:
     def _browse_targets(self):
         filepath = filedialog.askopenfilename(
             title="Seleccionar archivo de direcciones objetivo",
+            initialdir=self.shared_dir,
             filetypes=[("Archivos de texto", "*.txt"), ("Todos los archivos", "*.*")]
         )
         if filepath:
