@@ -4,6 +4,7 @@
 EVM Wallet Cracker / Hunter — Búsqueda de fuerza bruta de frases semilla.
 """
 
+import sys
 import os
 import threading
 import subprocess
@@ -256,9 +257,13 @@ class EVMWalletCrackerApp:
                 words.append("?")
             partial_phrase = " ".join(words)
 
-        script_dir = os.path.dirname(os.path.abspath(__file__))
+        if getattr(sys, 'frozen', False):
+            script_dir = sys._MEIPASS
+        else:
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            
         bip39_path = os.path.join(script_dir, "bip39.txt")
-        hybrid_path = os.path.join(script_dir, "wallet-cracker")
+        hybrid_path = os.path.join(script_dir, "wallet-cracker-bin")
         gpu_dir = os.path.join(script_dir, "wallet-cracking-gpu")
         gpu_path = os.path.join(gpu_dir, "wallet-cracker-gpu")
         if not os.path.exists(gpu_path):
